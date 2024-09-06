@@ -2,6 +2,8 @@
 #include "vehicle.h"
 #include "car.h"
 #include "bus.h"
+
+#include "proxy_bug_manage.h"
 #include <iostream>
 
 int main()
@@ -15,6 +17,14 @@ int main()
 
     std::shared_ptr<IVehicle> bus = container.ResolveShared("Bus");
     bus->drive();
+
+    std::cout << "-------------------" << std::endl;
+    ProxyBugManage proxy{};
+    for (int i = 0; i < 3; ++i) {
+        std::cout << "第" << i+1 << "次访问数据：";
+        proxy.getBug();
+    }
+    std::cout << "-------------------" << std::endl;
 
     return 0;
 }

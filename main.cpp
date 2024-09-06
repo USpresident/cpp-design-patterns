@@ -2,7 +2,7 @@
 #include "vehicle.h"
 #include "car.h"
 #include "bus.h"
-// #include <iostream>
+#include <iostream>
 
 int main()
 {
@@ -16,6 +16,5 @@ int main()
     std::shared_ptr<IVehicle> bus = container.ResolveShared("Bus");
     bus->drive();
 
-    // system("pause"); // 这是windows的
     return 0;
 }

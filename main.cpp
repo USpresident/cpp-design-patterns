@@ -4,6 +4,7 @@
 #include "bus.h"
 
 #include "proxy_bug_manage.h"
+#include "proxy_server.h"
 #include <iostream>
 
 int main()
@@ -25,6 +26,9 @@ int main()
         proxy.getBug();
     }
     std::cout << "-------------------" << std::endl;
+
+    std::unique_ptr<IServer> svr = std::make_unique<ProxyServer>("liuchao", "1234");
+    svr->Request();
 
     return 0;
 }

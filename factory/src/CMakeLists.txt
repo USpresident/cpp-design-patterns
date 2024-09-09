@@ -1,7 +1,7 @@
 
 # 方式1：逐个指定要编译的源文件
 set(SUB_SRC bus.cpp car.cpp)
-# 方式2：将目录下的所有源文件保存到遍历中
+# 方式2：将目录下的所有源文件保存到变量中
 # aux_source_directory(. SUB_SRC)
 
 # 只需在最顶层包头文件就OK？

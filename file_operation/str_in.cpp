@@ -15,7 +15,7 @@ int main()
         std::cout << line << std::endl;
     }
 
-    // 方式2：空格分段,读到空格处，空格后下一次读取
+    // 方式2：读取一个单词
     // while (inFile >> line) {
     //     std::cout << line << std::endl;
     // }

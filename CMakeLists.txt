@@ -8,11 +8,13 @@ message(STATUS "PROJECT_SOURCE_DIR = " ${PROJECT_SOURCE_DIR})
 include_directories(${PROJECT_SOURCE_DIR}/factory/head)
 include_directories(${PROJECT_SOURCE_DIR}/proxy/head)
 include_directories(${PROJECT_SOURCE_DIR}/composite/head)
+include_directories(${PROJECT_SOURCE_DIR}/momento/head)
 
 # 子目录的源文件，并指定中间件的目标地址
 add_subdirectory(${PROJECT_SOURCE_DIR}/factory/src bin_factory)
 add_subdirectory(${PROJECT_SOURCE_DIR}/proxy/src bin_proxy)
 add_subdirectory(${PROJECT_SOURCE_DIR}/composite bin_composite)
+add_subdirectory(${PROJECT_SOURCE_DIR}/momento bin_momento)
 
 # 以上已经将子目录构建成库，下边是构建可执行文件
 set(SRC main.cpp)
@@ -22,3 +24,4 @@ add_executable(main_exe ${SRC})
 target_link_libraries(main_exe factory)
 target_link_libraries(main_exe proxy)
 target_link_libraries(main_exe composite)
+target_link_libraries(main_exe momento)

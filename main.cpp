@@ -7,6 +7,11 @@
 
 #include "proxy_bug_manage.h"
 #include "proxy_server.h"
+
+#include "momento.h"
+#include "original_word.h"
+#include "caretaker.h"
+
 #include <iostream>
 
 int main()
@@ -43,6 +48,32 @@ int main()
 
     Express x = Express('*', Express('-', 5), Express('+', 3, 4));
     std::cout << x << "=" << x.eval() << std::endl;
+
+    std::cout << "-------------------" << std::endl;
+
+    OriginalWord *fstMsg = new OriginalWord("Hello ffff..");
+    std::cout << "fstMes....." << std::endl;
+    fstMsg->showWords();
+    CareTaker *careTaker = new CareTaker();
+    careTaker->SetMomento(fstMsg->SaveWords());
+    std::cout << "has saved fstMsg....." << std::endl;
+
+    OriginalWord *sndMsg = new OriginalWord("Hello ggggg..");
+    std::cout << "sndMes....." << std::endl;
+    sndMsg->showWords();
+
+    OriginalWord *thdMsg = new OriginalWord("Hello hhhhh..");
+    std::cout << "thdMsg....." << std::endl;
+    thdMsg->showWords();
+
+    std::cout << "....................." << std::endl;
+    fstMsg->recycleWords(careTaker->GetMomento());
+    fstMsg->showWords();
+
+    delete fstMsg;
+    delete sndMsg;
+    delete thdMsg;
+    delete careTaker;
 
     return 0;
 }

@@ -1,6 +1,6 @@
 # cmake_minimum_required(VERSION 3.2)
 
-# project(TEST)
+# project(TEST_MEDIATOR)
 
 add_subdirectory(src)
 
